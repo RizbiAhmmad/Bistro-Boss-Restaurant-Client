@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination } from "swiper/modules";
+import { Pagination, Autoplay } from "swiper/modules"; // ✅ Import Autoplay
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -11,13 +11,14 @@ import slide3 from "../assets/home/slide3.jpg";
 import slide4 from "../assets/home/slide4.jpg";
 import slide5 from "../assets/home/slide5.jpg";
 import SectionTitle from "../Components/SectionTitle";
+
 const Category = () => {
   return (
     <section>
       <SectionTitle
         subHeading={"From 11.00am to 10.00pm"}
         heading={"Order Online"}
-      ></SectionTitle>
+      />
 
       <Swiper
         slidesPerView={4}
@@ -26,7 +27,11 @@ const Category = () => {
         pagination={{
           clickable: true,
         }}
-        modules={[Pagination]}
+        autoplay={{
+          delay: 2000,
+          disableOnInteraction: false,
+        }}
+        modules={[Pagination, Autoplay]} // ✅ Add Autoplay module here
         className="mySwiper mb-24"
       >
         <SwiperSlide>
